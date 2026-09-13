@@ -1,0 +1,7 @@
+# Fortran build outputs
+*.o
+
+# Executables
+a.out
+hello
+*.exe
