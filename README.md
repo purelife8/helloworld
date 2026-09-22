@@ -150,11 +150,70 @@ cd rust && cargo run
 python3 python/hello.py
 ```
 
+## GitHub Codespaces
+
+GitHub Codespaces を使うと、ローカル環境を準備せずに GitHub 上の開発環境をクラウドで起動できます。ブラウザまたは VS Code から利用できます。
+
+### 起動手順
+
+1. GitHub でこのリポジトリを開きます。
+2. **Code** ボタンを選択し、**Codespaces** タブを開きます。
+3. **Create codespace on main** を選択します。
+4. Codespace の作成が完了したら、ターミナルで各言語のコマンドを実行します。
+
+### Codespaces 内での実行
+
+```bash
+# Fortran
+cd fortran && make && ./hello
+
+# Rust
+cd rust && cargo run
+
+# Python（プロジェクトのルートから）
+python3 python/hello.py
+```
+
+## GitHub Actions
+
+GitHub Actions を使って、リポジトリへの変更時に各言語のビルドと実行を自動確認できます。
+
+### 実行されるタイミング
+
+次の操作を行うと、Fortran、Rust、Python のワークフローが実行されます。
+
+- `main` ブランチなどへの `push`
+- Pull Request の作成・更新
+
+### 実行結果の確認
+
+1. GitHub でリポジトリを開きます。
+2. **Actions** タブを選択します。
+3. 次のワークフローから確認したいものを選択します。
+	- **Fortran Hello World**: Fortran のインストール、ビルド、実行
+	- **Rust Hello World**: Rust のビルド、実行
+	- **Python Hello World**: Python プログラムの実行
+4. 実行履歴から対象のコミットまたは Pull Request を選択し、各ステップのログを確認します。
+
+### ビルド成果物
+
+Fortran と Rust のワークフローが正常に完了すると、実行ファイルを成果物としてダウンロードできます。
+
+- Fortran: `fortran-hello`
+- Rust: `rust-hello`
+
+ワークフローの実行結果画面にある **Artifacts** から成果物をダウンロードします。Rust の成果物は 7 日間保存されます。
+
 ## ディレクトリ構成
 
 ```text
 .
 ├── README.md
+├── .github
+│   └── workflows
+│       ├── fortran.yaml
+│       ├── python.yaml
+│       └── rust.yaml
 ├── fortran
 │   ├── Makefile
 │   └── hello.f90
