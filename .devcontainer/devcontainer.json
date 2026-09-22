@@ -1,0 +1,7 @@
+{
+  "name": "helloworld",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  }
+}
