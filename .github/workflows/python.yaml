@@ -1,0 +1,17 @@
+name: Python Hello World
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Hello World
+        run: python3 python/hello.py
+        
