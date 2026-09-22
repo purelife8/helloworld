@@ -79,6 +79,12 @@ git clone https://github.com/<ユーザー名>/<リポジトリ名>.git
 cd <リポジトリ名>
 ```
 
+> [!note]
+> オフラインのリモートホストからはGitHubのレポジトリを直接clone、pushすることができません。
+> この場合は、オンラインのPCで共有フォルダにレポジトリをクローンしたのち、Remote-SSHで当該フォルダを開き編集します。
+> 編集が終わったら、オンラインPCに戻り、変更をレポジトリにpushします。
+> （commitのようなローカルレポジトリの変更はオフラインのリモートホストからでも可能です。）
+
 4. 接続先のターミナルで、次のコマンドを実行します。
 
 ```bash
@@ -95,6 +101,9 @@ python3 python/hello.py
 ## WSL
 
 WSL（Windows Subsystem for Linux）を使うと、Windows 上で Linux 環境のコンパイラやツールを利用できます。
+
+> [!note]
+> WSLのディストロは原理的には何でもいいのですが、デファクトスタンダートとなっている `Ubuntu` を選んでおくのが無難です。
 
 ### 必要なもの
 
@@ -209,6 +218,10 @@ Fortran と Rust のワークフローが正常に完了すると、実行ファ
 ```text
 .
 ├── README.md
+├── .gitignore
+├── .devcontainer
+│   ├── devcontainer.json
+│   └── Dockerfile
 ├── .github
 │   └── workflows
 │       ├── fortran.yaml
