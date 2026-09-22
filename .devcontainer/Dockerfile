@@ -5,6 +5,7 @@ RUN microdnf install -y \
         make \
         git \
         curl \
+        tar \
     && microdnf clean all
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
