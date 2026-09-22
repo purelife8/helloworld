@@ -1,4 +1,4 @@
-FC = ifort
+FC = gfortran
 TARGET = hello
 
 $(TARGET): hello.f90
