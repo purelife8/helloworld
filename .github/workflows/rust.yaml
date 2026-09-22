@@ -1,0 +1,33 @@
+name: Rust Hello World
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-rust:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Rust version
+        run: |
+          rustc --version
+          cargo --version
+
+      - name: Build Rust
+        run: cargo build
+        working-directory: rust
+
+      - name: Run Hello World
+        run: ./target/debug/rust
+        working-directory: rust
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-hello
+          path: rust/target/debug/rust
+          retention-days: 7
