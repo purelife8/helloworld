@@ -24,3 +24,9 @@ jobs:
       - name: Run Hello World
         run: ./hello
         working-directory: fortran
+
+      - name: Upload binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: fortran-hello
+          path: fortran/hello
