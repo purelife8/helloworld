@@ -6,6 +6,7 @@ RUN microdnf install -y \
         git \
         curl \
         tar \
+        python3 \
     && microdnf clean all
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
