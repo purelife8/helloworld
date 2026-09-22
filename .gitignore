@@ -1,6 +1,9 @@
 # Fortran build outputs
 *.o
 
+# rust build outputs
+rust/target/
+
 # Executables
 a.out
 hello
