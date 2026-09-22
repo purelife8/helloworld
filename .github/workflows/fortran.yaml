@@ -1,0 +1,26 @@
+name: Fortran Hello World
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-fortran:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install gfortran
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gfortran make
+
+      - name: Build Fortran
+        run: make
+        working-directory: fortran
+
+      - name: Run Hello World
+        run: ./hello
+        working-directory: fortran
